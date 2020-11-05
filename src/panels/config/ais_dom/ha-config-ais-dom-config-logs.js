@@ -214,50 +214,6 @@ class HaConfigAisDomControlLogs extends PolymerElement {
                   </paper-listbox>
                 </ha-paper-dropdown-menu>
               </div>
-              <div class="card-content" style$="[[dbFileDisplayStyle]]">
-                Wybór dysku do zapisu bazy danych: <br />
-                <ha-icon-button icon="mdi:usb-flash-drive"></ha-icon-button>
-                <ha-paper-dropdown-menu
-                  label-float="Wybrany dysk"
-                  dynamic-align=""
-                  label="Dyski wymienne"
-                >
-                  <paper-listbox
-                    slot="dropdown-content"
-                    selected="[[dbDrive]]"
-                    on-selected-changed="dbDriveChanged"
-                    attr-for-selected="item-name"
-                  >
-                    <template
-                      is="dom-repeat"
-                      items="[[usbDrives.attributes.options]]"
-                    >
-                      <paper-item item-name$="[[item]]">[[item]]</paper-item>
-                    </template>
-                  </paper-listbox>
-                </ha-paper-dropdown-menu>
-                <br /><br />
-                Żeby utrzymać system w dobrej kondycji, codziennie dokładnie o
-                godzinie 4:12 rano Asystent usuwa z bazy zdarzenia i stany
-                starsze niż <b>określona liczba dni</b> (2 dni dla bazy w
-                pamięci urządzenia i domyślnie 10 dla innych lokalizacji).
-                <br />
-                W tym miejscu możesz określić liczbę dni, których historia ma
-                być przechowywana na zewnętrznym dysku.
-                <paper-input
-                  id="db_keep_days"
-                  type="number"
-                  value="[[dbKeepDays]]"
-                  on-change="_computeDbUrl"
-                  maxlength="4"
-                  max="9999"
-                  min="1"
-                  label-float="Liczba dni przechowywanych w bazie"
-                  label="Liczba dni przechowywanych w bazie"
-                >
-                  <ha-icon icon="mdi:calendar" slot="suffix"></ha-icon>
-                </paper-input>
-              </div>
               <div class="card-content" style$="[[dbConectionDisplayStyle]]">
                 Parametry połączenia z bazą danych: <br />
                 <paper-input
